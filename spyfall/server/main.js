@@ -10,9 +10,13 @@ function cleanUpGamesAndPlayers(){
   });
 }
 
-function getRandomLocation(){
-  var locationIndex = Math.floor(Math.random() * locations.length);
-  return locations[locationIndex];
+function getRandomLocation(oldLocations){
+  var locationIndex = -1;
+  do {
+    locationIndex = Math.floor(Math.random() * locations.length);
+    console.log(locationIndex, oldLocations);
+  } while (oldLocations.indexOf(locationIndex) != -1);
+  return locationIndex;
 }
 
 function shuffleArray(array) {
@@ -62,9 +66,24 @@ Meteor.publish('players', function(gameID) {
   return Players.find({"gameID": gameID});
 });
 
+var oldGame = null;
+var oldLocations = [];
+
 Games.find({"state": 'settingUp'}).observeChanges({
   added: function (id, game) {
-    var location = getRandomLocation();
+    console.log(id);
+    if (oldGame != id) {
+      oldGame = id;
+      oldLocations = [];
+    }
+    var locationIndex = getRandomLocation(oldLocations);
+    var location = locations[locationIndex];
+    oldLocations.push(locationIndex);
+    //console.log(oldLocations);
+    if (oldLocations.length == locations.length) {
+      oldLocations = [];
+    }
+
     var players = Players.find({gameID: id});
     var gameEndTime = moment().add(game.lengthInMinutes, 'minutes').valueOf();
 
