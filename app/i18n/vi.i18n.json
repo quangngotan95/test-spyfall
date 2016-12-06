@@ -54,6 +54,7 @@
         "theater": "Rạp hát",
         "university": "Trường đại học",
         "world war ii squad": "Quân đội thế chiến 2",
+        "spy school": "Trường đào tạo gián điệp",
         "roles": {
             "airplane": {
                 "first class passenger": "Hành khách hạng sang",
@@ -306,6 +307,9 @@
                 "cook": "Đầu bếp",
                 "imprisoned nazi": "Tù nhân Phát xít",
                 "soldier": "Chiến binh"
+            },
+            "spy school": {
+                
             }
         }
     }

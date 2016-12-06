@@ -54,6 +54,7 @@
         "theater": "Theater",
         "university": "University",
         "world war ii squad": "World War II Squad",
+        "spy school": "Spy School",
         "roles": {
             "airplane": {
                 "first class passenger": "First Class Passenger",
@@ -306,6 +307,9 @@
                 "cook": "Cook",
                 "imprisoned nazi": "Imprisoned Nazi",
                 "soldier": "Soldier"
+            },
+            "spy school": {
+
             }   
         }
     }

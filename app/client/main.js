@@ -98,7 +98,7 @@ function getCurrentPlayer(){
 
 function generateAccessCode(){
   var code = "";
-  var possible = "abcdefghijklmnopqrstuvwxyz";
+  var possible = "0123456789";
 
     for(var i=0; i < 6; i++){
       code += possible.charAt(Math.floor(Math.random() * possible.length));

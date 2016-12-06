@@ -83,6 +83,7 @@ Games.find({"state": 'settingUp'}).observeChanges({
     if (oldLocations.length == locations.length) {
       oldLocations = [];
     }    
+    var spySchool = location.name == 'locations.spy school';
 
     var players = Players.find({gameID: id});
     var gameEndTime = moment().add(game.lengthInMinutes, 'minutes').valueOf();
@@ -92,7 +93,7 @@ Games.find({"state": 'settingUp'}).observeChanges({
 
     players.forEach(function(player, index){
       Players.update(player._id, {$set: {
-        isSpy: index === spyIndex,
+        isSpy: index === spyIndex || spySchool,
         isFirstPlayer: index === firstPlayerIndex
       }});
     });

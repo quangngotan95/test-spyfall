@@ -334,5 +334,10 @@ locations = [
       'locations.roles.world war ii squad.imprisoned nazi',
       'locations.roles.world war ii squad.soldier'
     ]
+  },
+  {
+    name: 'locations.spy school',
+    roles: [
+    ]
   }
 ];
